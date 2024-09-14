@@ -119,4 +119,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c="xclip -selection clipboard"
+alias lg="lazygit"
 eval $(zoxide init zsh --cmd cd)
