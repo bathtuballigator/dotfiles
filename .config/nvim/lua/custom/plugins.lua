@@ -13,6 +13,7 @@ local plugins = {
       lazy=false
     },
     {
+      lazy=false,
       "christoomey/vim-tmux-navigator",
       cmd = {
         "TmuxNavigateLeft",
