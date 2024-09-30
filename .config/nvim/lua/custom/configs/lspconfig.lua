@@ -8,7 +8,7 @@ lspconfig.clangd.setup {
   cmd = {
     "clangd",
     "--background-index",
-    "--compile-commands-dir=/home/rose/geekos/build"
+    -- "--compile-commands-dir=/home/rose/geekos/build"
   },
   filetypes = {"c"},
   on_attach = on_attach,
