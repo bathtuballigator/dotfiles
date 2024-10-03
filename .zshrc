@@ -120,4 +120,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c="xclip -selection clipboard"
 alias lg="lazygit"
+alias tvim="tmux new -c $PWD nvim"
 eval $(zoxide init zsh --cmd cd)
