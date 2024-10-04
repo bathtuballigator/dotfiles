@@ -52,6 +52,7 @@ M.general = {
       end,
       "LSP formatting",
     },
+    ["<leader>cd"] = {"<cmd> Telescope zoxide list <CR>", "zoxide cd"},
   },
 
   t = {

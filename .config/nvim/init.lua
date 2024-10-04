@@ -19,8 +19,4 @@ end
 dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
-local o = vim.o
 
-o.smartindent = true 
-o.softtabstop = 4 
-o.shiftwidth = 4 

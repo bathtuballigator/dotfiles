@@ -4,14 +4,29 @@ local plugins = {
       "nanotee/zoxide.vim"
     },
     {
-      "junegunn/fzf.vim",
-      dir = "~/.fzf",
-      build = "./install --all",
-      depedencies = {
-        "junegunn/fzf"
-      },
-      lazy=false
+      "jvgrootveld/telescope-zoxide"
     },
+    {
+      "nvim-lua/popup.nvim"
+    },
+    {
+      "nvim-lua/plenary.nvim"
+    },
+    {
+      "nmac427/guess-indent.nvim",
+      init = function() require("guess-indent").setup ({
+        -- can put config here
+      }) end
+    },
+    -- {
+    --   "junegunn/fzf.vim",
+    --   dir = "~/.fzf",
+    --   build = "./install --all",
+    --   depedencies = {
+    --     "junegunn/fzf"
+    --   },
+    --   lazy=false
+    -- },
     {
       lazy=false,
       "christoomey/vim-tmux-navigator",

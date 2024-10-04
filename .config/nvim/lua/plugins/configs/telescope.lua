@@ -1,3 +1,5 @@
+local z_utils = require("telescope._extensions.zoxide.utils")
+
 local options = {
   defaults = {
     vimgrep_arguments = {
@@ -48,7 +50,11 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions = {
+    require("custom.configs.telescope_exts")
+  },
+
+  extensions_list = { "themes", "terms", "zoxide" },
 }
 
 return options
