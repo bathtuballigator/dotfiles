@@ -54,6 +54,12 @@ local options = {
     require("custom.configs.telescope_exts")
   },
 
+  pickers = {
+    find_files = {
+      find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
+    },
+  },
+
   extensions_list = { "themes", "terms", "zoxide" },
 }
 

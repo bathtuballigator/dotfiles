@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-export PATH="/home/rose/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
 export ZOXIDE_CMD_OVERRIDE=cd
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
