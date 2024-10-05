@@ -44,8 +44,6 @@ M.general = {
 
     -- new buffer
     ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
-    ["<leader>ch"] = { "<cmd> NvCheatsheet <CR>", "Mapping cheatsheet" },
-
     ["<leader>fm"] = {
       function()
         vim.lsp.buf.format { async = true }
@@ -75,58 +73,25 @@ M.general = {
   },
 }
 
-M.tabufline = {
-  plugin = true,
-
+M.bufferline = {
   n = {
     -- cycle through buffers
-    ["<tab>"] = {
-      function()
-        require("nvchad.tabufline").tabuflineNext()
-      end,
+    ["<tab>"] = { "<cmd> BufferLineCycleNext <CR>",
       "Goto next buffer",
     },
 
-    ["<S-tab>"] = {
-      function()
-        require("nvchad.tabufline").tabuflinePrev()
-      end,
+    ["<S-tab>"] = { "<cmd> BufferLineCyclePrev <CR>",
       "Goto prev buffer",
     },
 
     -- close buffer + hide terminal buffer
-    ["<leader>x"] = {
-      function()
-        require("nvchad.tabufline").close_buffer()
-      end,
+    ["<leader>x"] = { "<cmd> Bdelete <CR>",
       "Close buffer",
     },
   },
 }
 
-M.comment = {
-  plugin = true,
-
-  -- toggle comment in both modes
-  n = {
-    ["<leader>/"] = {
-      function()
-        require("Comment.api").toggle.linewise.current()
-      end,
-      "Toggle comment",
-    },
-  },
-
-  v = {
-    ["<leader>/"] = {
-      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-      "Toggle comment",
-    },
-  },
-}
-
 M.lspconfig = {
-  plugin = true,
 
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
@@ -255,8 +220,6 @@ M.lspconfig = {
 }
 
 M.nvimtree = {
-  plugin = true,
-
   n = {
     -- toggle
     ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
@@ -267,8 +230,6 @@ M.nvimtree = {
 }
 
 M.telescope = {
-  plugin = true,
-
   n = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
@@ -294,8 +255,6 @@ M.telescope = {
 }
 
 M.nvterm = {
-  plugin = true,
-
   t = {
     -- toggle in terminal mode
     ["<A-i>"] = {
@@ -361,8 +320,6 @@ M.nvterm = {
 }
 
 M.whichkey = {
-  plugin = true,
-
   n = {
     ["<leader>wK"] = {
       function()
@@ -381,8 +338,6 @@ M.whichkey = {
 }
 
 M.blankline = {
-  plugin = true,
-
   n = {
     ["<leader>cc"] = {
       function()
@@ -403,8 +358,6 @@ M.blankline = {
 }
 
 M.gitsigns = {
-  plugin = true,
-
   n = {
     -- Navigation through hunks
     ["]c"] = {

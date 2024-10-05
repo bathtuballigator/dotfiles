@@ -51,15 +51,7 @@ M.remove_disabled_keys = function(chadrc_mappings, default_mappings)
   return default_mappings
 end
 
-M.load_mappings = function(section, mapping_opt)
-  vim.schedule(function()
-    local function set_section_map(section_values)
-      if section_values.plugin then
-        return
-      end
-
-      section_values.plugin = nil
-
+M.load_mappings = function(section_values, mapping_opt)
       for mode, mode_values in pairs(section_values) do
         local default_opts = merge_tb("force", { mode = mode }, mapping_opt or {})
         for keybind, mapping_info in pairs(mode_values) do
@@ -73,19 +65,6 @@ M.load_mappings = function(section, mapping_opt)
         end
       end
     end
-
-    local mappings = require("core.utils").load_config().mappings
-
-    if type(section) == "string" then
-      mappings[section]["plugin"] = nil
-      mappings = { mappings[section] }
-    end
-
-    for _, sect in pairs(mappings) do
-      set_section_map(sect)
-    end
-  end)
-end
 
 M.lazy_load = function(plugin)
   vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
