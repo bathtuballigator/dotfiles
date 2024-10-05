@@ -1,22 +1,23 @@
-require "core"
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
 
-if custom_init_path then
-  dofile(custom_init_path)
-end
 
-require("core.utils").load_mappings()
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set shiftwidth=2")
 
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+require("config.lazy")
 
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
-end
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
-dofile(vim.g.base46_cache .. "defaults")
-vim.opt.rtp:prepend(lazypath)
-require "plugins"
-
+vim.keymap.set('n', '<C-n>', "<cmd> NvimTreeToggle <CR>", { desc = 'Focus nvimtree' })
+vim.keymap.set('n', '<leader>e', "<cmd> NvimTreeFocus <CR>", { desc = 'Focus nvimtree' })
