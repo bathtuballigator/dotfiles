@@ -31,7 +31,7 @@ M.general = {
 
     -- line numbers
     ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ["<leader>re"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -46,11 +46,11 @@ M.general = {
     ["<leader>b"] = { "<cmd> enew <CR>", "New buffer" },
     ["<leader>fm"] = {
       function()
-        vim.lsp.buf.format { async = true }
+        vim.lsp.buf.format({ async = true })
       end,
       "LSP formatting",
     },
-    ["<leader>cd"] = {"<cmd> Telescope zoxide list <CR>", "zoxide cd"},
+    ["<leader>cd"] = { "<cmd> Telescope zoxide list <CR>", "zoxide cd" },
   },
 
   t = {
@@ -76,18 +76,12 @@ M.general = {
 M.bufferline = {
   n = {
     -- cycle through buffers
-    ["<tab>"] = { "<cmd> BufferLineCycleNext <CR>",
-      "Goto next buffer",
-    },
+    ["<tab>"] = { "<cmd> BufferLineCycleNext <CR>", "Goto next buffer" },
 
-    ["<S-tab>"] = { "<cmd> BufferLineCyclePrev <CR>",
-      "Goto prev buffer",
-    },
+    ["<S-tab>"] = { "<cmd> BufferLineCyclePrev <CR>", "Goto prev buffer" },
 
     -- close buffer + hide terminal buffer
-    ["<leader>x"] = { "<cmd> Bdelete <CR>",
-      "Close buffer",
-    },
+    ["<leader>x"] = { "<cmd> Bdelete <CR>", "Close buffer" },
   },
 }
 
@@ -138,10 +132,8 @@ M.lspconfig = {
       "LSP definition type",
     },
 
-    ["<leader>ra"] = {
-      function()
-        require("nvchad.renamer").open()
-      end,
+    ["<leader>rn"] = {
+      ":IncRename ",
       "LSP rename",
     },
 
@@ -161,21 +153,21 @@ M.lspconfig = {
 
     ["<leader>lf"] = {
       function()
-        vim.diagnostic.open_float { border = "rounded" }
+        vim.diagnostic.open_float({ border = "rounded" })
       end,
       "Floating diagnostic",
     },
 
     ["[d"] = {
       function()
-        vim.diagnostic.goto_prev { float = { border = "rounded" } }
+        vim.diagnostic.goto_prev({ float = { border = "rounded" } })
       end,
       "Goto prev",
     },
 
     ["]d"] = {
       function()
-        vim.diagnostic.goto_next { float = { border = "rounded" } }
+        vim.diagnostic.goto_next({ float = { border = "rounded" } })
       end,
       "Goto next",
     },
@@ -259,21 +251,21 @@ M.nvterm = {
     -- toggle in terminal mode
     ["<A-i>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle("float")
       end,
       "Toggle floating term",
     },
 
     ["<A-h>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle("horizontal")
       end,
       "Toggle horizontal term",
     },
 
     ["<A-v>"] = {
       function()
-        require("nvterm.terminal").toggle "vertical"
+        require("nvterm.terminal").toggle("vertical")
       end,
       "Toggle vertical term",
     },
@@ -283,21 +275,21 @@ M.nvterm = {
     -- toggle in normal mode
     ["<A-i>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle("float")
       end,
       "Toggle floating term",
     },
 
     ["<A-h>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle("horizontal")
       end,
       "Toggle horizontal term",
     },
 
     ["<A-v>"] = {
       function()
-        require("nvterm.terminal").toggle "vertical"
+        require("nvterm.terminal").toggle("vertical")
       end,
       "Toggle vertical term",
     },
@@ -305,14 +297,14 @@ M.nvterm = {
     -- new
     ["<leader>h"] = {
       function()
-        require("nvterm.terminal").new "horizontal"
+        require("nvterm.terminal").new("horizontal")
       end,
       "New horizontal term",
     },
 
     ["<leader>v"] = {
       function()
-        require("nvterm.terminal").new "vertical"
+        require("nvterm.terminal").new("vertical")
       end,
       "New vertical term",
     },
@@ -323,13 +315,13 @@ M.whichkey = {
   n = {
     ["<leader>wK"] = {
       function()
-        vim.cmd "WhichKey"
+        vim.cmd("WhichKey")
       end,
       "Which-key all keymaps",
     },
     ["<leader>wk"] = {
       function()
-        local input = vim.fn.input "WhichKey: "
+        local input = vim.fn.input("WhichKey: ")
         vim.cmd("WhichKey " .. input)
       end,
       "Which-key query lookup",
@@ -348,7 +340,7 @@ M.blankline = {
 
         if ok then
           vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-          vim.cmd [[normal! _]]
+          vim.cmd([[normal! _]])
         end
       end,
 
