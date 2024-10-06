@@ -5,11 +5,10 @@ vim.g.loaded_netrwPlugin = 1
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
-
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
+vim.cmd("set softtabstop=2")
+vim.cmd("set tabstop=2")
 
 require("config.lazy")
 
@@ -20,8 +19,34 @@ require("config.lazy")
 -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 local maps = require("core.mappings")
+local utils = require("core.utils")
+utils.load_mappings(maps.general, {})
+utils.load_mappings(maps.nvimtree, {})
+utils.load_mappings(maps.bufferline, {})
+utils.load_mappings(maps.telescope, {})
+utils.load_mappings(maps.gitsigns,{})
 
-require("core.utils").load_mappings(maps.general, {})
-require("core.utils").load_mappings(maps.nvimtree, {})
-require("core.utils").load_mappings(maps.bufferline, {})
-require("core.utils").load_mappings(maps.telescope, {})
+vim.api.nvim_create_autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
+	group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
+	callback = function(args)
+		local file = vim.api.nvim_buf_get_name(args.buf)
+		local buftype = vim.api.nvim_buf_get_option(args.buf, "buftype")
+
+		if not vim.g.ui_entered and args.event == "UIEnter" then
+			vim.g.ui_entered = true
+		end
+
+		if file ~= "" and buftype ~= "nofile" and vim.g.ui_entered then
+			vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
+			vim.api.nvim_del_augroup_by_name("NvFilePost")
+
+			vim.schedule(function()
+				vim.api.nvim_exec_autocmds("FileType", {})
+
+				if vim.g.editorconfig then
+					require("editorconfig").config(args.buf)
+				end
+			end, 0)
+		end
+	end,
+})
