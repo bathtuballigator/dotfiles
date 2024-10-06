@@ -2,7 +2,7 @@ local M = {}
 local merge_tb = vim.tbl_deep_extend
 
 M.load_config = function()
-  local config = require "core.default_config"
+  local config = require("core.default_config")
   local chadrc_path = vim.api.nvim_get_runtime_file("lua/custom/chadrc.lua", false)[1]
 
   if chadrc_path then
@@ -52,25 +52,25 @@ M.remove_disabled_keys = function(chadrc_mappings, default_mappings)
 end
 
 M.load_mappings = function(section_values, mapping_opt)
-      for mode, mode_values in pairs(section_values) do
-        local default_opts = merge_tb("force", { mode = mode }, mapping_opt or {})
-        for keybind, mapping_info in pairs(mode_values) do
-          -- merge default + user opts
-          local opts = merge_tb("force", default_opts, mapping_info.opts or {})
+  for mode, mode_values in pairs(section_values) do
+    local default_opts = merge_tb("force", { mode = mode }, mapping_opt or {})
+    for keybind, mapping_info in pairs(mode_values) do
+      -- merge default + user opts
+      local opts = merge_tb("force", default_opts, mapping_info.opts or {})
 
-          mapping_info.opts, opts.mode = nil, nil
-          opts.desc = mapping_info[2]
+      mapping_info.opts, opts.mode = nil, nil
+      opts.desc = mapping_info[2]
 
-          vim.keymap.set(mode, keybind, mapping_info[1], opts)
-        end
-      end
+      vim.keymap.set(mode, keybind, mapping_info[1], opts)
     end
+  end
+end
 
 M.lazy_load = function(plugin)
   vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
     group = vim.api.nvim_create_augroup("BeLazyOnFileOpen" .. plugin, {}),
     callback = function()
-      local file = vim.fn.expand "%"
+      local file = vim.fn.expand("%")
       local condition = file ~= "NvimTree_1" and file ~= "[lazy]" and file ~= ""
 
       if condition then
@@ -80,14 +80,14 @@ M.lazy_load = function(plugin)
         -- This deferring only happens only when we do "nvim filename"
         if plugin ~= "nvim-treesitter" then
           vim.schedule(function()
-            require("lazy").load { plugins = plugin }
+            require("lazy").load({ plugins = plugin })
 
             if plugin == "nvim-lspconfig" then
-              vim.cmd "silent! do FileType"
+              vim.cmd("silent! do FileType")
             end
           end, 0)
         else
-          require("lazy").load { plugins = plugin }
+          require("lazy").load({ plugins = plugin })
         end
       end
     end,

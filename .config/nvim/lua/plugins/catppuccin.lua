@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     require("catppuccin").setup({
-      compile_path = vim.fn.stdpath "cache" .. "/catppuccin",
+      compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
       -- optional setup goes here
       integrations = {
         nvimtree = true,
