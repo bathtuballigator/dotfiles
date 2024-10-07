@@ -8,6 +8,8 @@ return {
       -- optional setup goes here
       integrations = {
         nvimtree = true,
+        gitsigns = true,
+        markdown = true,
         treesitter = true,
         telescope = {
           enabled = true,

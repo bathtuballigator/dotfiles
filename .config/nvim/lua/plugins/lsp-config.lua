@@ -20,6 +20,7 @@ return {
         "mypy",
         "stylua",
         "texlab",
+        "marksman",
       },
     },
     config = function(_, opts)

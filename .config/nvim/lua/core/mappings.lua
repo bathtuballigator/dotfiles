@@ -411,4 +411,17 @@ M.gitsigns = {
   },
 }
 
+M.markdown = {
+  n = {
+    ["<leader>toc"] = {
+      "<cmd> MDInsertToc <CR>",
+      "Generate order Table of contents in Markdown"
+    },
+    ["<leader>md"] = {
+      "<cmd> MarkdownPreviewToggle <CR>",
+      "Toggle markdown preview",
+    },
+  },
+}
+
 return M

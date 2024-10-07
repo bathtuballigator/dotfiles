@@ -20,4 +20,6 @@ lspconfig.texlab.setup({
   capabilities = capabilities,
   filetypes = { "tex", "plaintex", "bib" },
 })
+
+lspconfig.marksman.setup({})
 require("core.utils").load_mappings(require("core.mappings").lspconfig, {})

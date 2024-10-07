@@ -26,6 +26,7 @@ utils.load_mappings(maps.nvimtree, {})
 utils.load_mappings(maps.bufferline, {})
 utils.load_mappings(maps.telescope, {})
 utils.load_mappings(maps.gitsigns, {})
+utils.load_mappings(maps.markdown, {})
 
 vim.api.nvim_create_autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
