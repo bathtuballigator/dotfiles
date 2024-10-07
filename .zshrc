@@ -1,7 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-export PATH="$HOME/.local/bin/:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
+
+
 export ZOXIDE_CMD_OVERRIDE=cd
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -122,6 +125,7 @@ alias c="xclip -selection clipboard"
 alias lg="lazygit"
 alias tvim="tmux new -c $PWD nvim"
 alias tstart="$HOME/.config/hypr/scripts/tmux_start.sh"
+alias ylg="yadm enter lazygit"
 
 
 
