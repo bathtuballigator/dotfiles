@@ -22,6 +22,10 @@ return {
       opts = function()
         return require("config.obsidian")
       end,
+      config = function (_, opts)
+        vim.opt_local.conceallevel = 1
+        require("obsidian").setup(opts)
+      end
     },
     {
       "MeanderingProgrammer/render-markdown.nvim",
@@ -32,16 +36,16 @@ return {
       ---@type render.md.UserConfig
       opts = {},
     },
-    {
-      "OXY2DEV/markview.nvim",
-      lazy = false, -- Recommended
-      -- ft = "markdown" -- If you decide to lazy-load anyway
-
-      dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "nvim-tree/nvim-web-devicons",
-      },
-    },
+    -- {
+    --   "OXY2DEV/markview.nvim",
+    --   lazy = false, -- Recommended
+    --   -- ft = "markdown" -- If you decide to lazy-load anyway
+    --
+    --   dependencies = {
+    --     "nvim-treesitter/nvim-treesitter",
+    --     "nvim-tree/nvim-web-devicons",
+    --   },
+    -- },
     {
       "tadmccorkle/markdown.nvim",
       ft = "markdown", -- or 'event = "VeryLazy"'
