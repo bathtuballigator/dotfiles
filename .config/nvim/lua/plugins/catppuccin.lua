@@ -7,10 +7,14 @@ return {
       compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
       -- optional setup goes here
       integrations = {
-        nvimtree = true,
         gitsigns = true,
+        neotree = false,
         markdown = true,
         treesitter = true,
+        mini = {
+          enabled = true,
+          indentscope_color = "", -- catppuccin color (eg. `lavender`) Default: text
+        },
         telescope = {
           enabled = true,
         },

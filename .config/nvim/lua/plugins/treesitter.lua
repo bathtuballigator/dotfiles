@@ -6,7 +6,7 @@ local treesitter = {
     event = "VeryLazy",
     opts = {
       -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-      ensure_installed = { "c", "lua", "vim", "python" },
+      ensure_installed = { "c", "lua", "vim", "python", "markdown", "markdown_inline", "latex" },
 
       highlight = { enable = true },
       indent = { enable = true },

@@ -14,10 +14,6 @@ return {
         changedelete = { text = "~" },
         untracked = { text = "│" },
       },
-      config = function(bufnr, opts)
-        require("core.utils").load_mappings(require("core.mappings").gitsigns, { buffer = bufnr })
-        require("gitsigns").setup(opts)
-      end,
     },
   },
 }

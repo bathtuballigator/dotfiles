@@ -1,6 +1,12 @@
 -- this is a comment
 local plugins = {
   {
+    "HiPhish/rainbow-delimiters.nvim",
+    config = function()
+      require("rainbow-delimiters.setup").setup()
+    end,
+  },
+  {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
@@ -45,11 +51,26 @@ local plugins = {
       -- can put config here
     },
   },
+  -- {
+  --   "nvim-tree/nvim-tree.lua",
+  --   event = "VeryLazy",
+  --   opts = {},
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- },
   {
-    "nvim-tree/nvim-tree.lua",
-    event = "VeryLazy",
+    "3rd/image.nvim",
     opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
   },
   {
     "akinsho/bufferline.nvim",
@@ -66,6 +87,12 @@ local plugins = {
   {
     "famiu/bufdelete.nvim",
     event = "BufNew",
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    opts = {},
   },
   {
     "numToStr/Comment.nvim",
@@ -106,16 +133,6 @@ local plugins = {
       -- show_current_context = true,
       -- show_current_context_start = true,
     },
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end,
   },
 }
 

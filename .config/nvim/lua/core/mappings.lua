@@ -217,7 +217,7 @@ M.nvimtree = {
     ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
 
     -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
+    ["<leader>e"] = { "<cmd> Neotree <CR>", "Focus nvimtree" },
   },
 }
 
@@ -415,7 +415,7 @@ M.markdown = {
   n = {
     ["<leader>toc"] = {
       "<cmd> MDInsertToc <CR>",
-      "Generate order Table of contents in Markdown"
+      "Generate order Table of contents in Markdown",
     },
     ["<leader>md"] = {
       "<cmd> MarkdownPreviewToggle <CR>",
