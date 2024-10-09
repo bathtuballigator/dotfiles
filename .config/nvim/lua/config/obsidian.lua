@@ -1,3 +1,12 @@
+local function tableContains(table, value)
+  for i = 1, #table do
+    if table[i] == value then
+      return true
+    end
+  end
+  return false
+end
+
 local mocha = require("catppuccin.palettes").get_palette("mocha")
 return {
   -- A list of workspace names, paths, and configuration overrides.
@@ -8,17 +17,32 @@ return {
   -- current markdown file being edited.
   workspaces = {
     {
+      name = "main",
+      path = "~/vaults/main",
+      overrides = {
+        notes_subdir = "notes",
+      },
+    },
+    {
+      name = "school",
+      path = "~/vaults/main",
+      overrides = {
+        notes_subdir = "notes/school",
+      },
+    },
+    {
       name = "personal",
-      path = "~/vaults/personal",
+      path = "~/vaults/main",
+      overrides = {
+        notes_subdir = "notes/personal",
+      },
     },
     {
       name = "work",
-      path = "~/vaults/work",
-      -- Optional, override certain settings.
-      -- overrides = {
-      --   notes_subdir = "notes",
-      -- },
-      -- find out what this does b4 reenabling
+      path = "~/vaults/main",
+      overrides = {
+        notes_subdir = "notes/work",
+      },
     },
   },
 
@@ -36,7 +60,7 @@ return {
   -- do want daily notes
   daily_notes = {
     -- Optional, if you keep daily notes in a separate directory.
-    folder = "notes/dailies",
+    folder = "journal",
     -- Optional, if you want to change the date format for the ID of daily notes.
     date_format = "%Y-%m-%d",
     -- Optional, if you want to change the date format of the default alias of daily notes.
@@ -59,12 +83,12 @@ return {
   -- way then set 'mappings = {}'.
   mappings = {
     -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
-    -- ["gf"] = {
-    --   action = function()
-    --     return require("obsidian").util.gf_passthrough()
-    --   end,
-    --   opts = { noremap = false, expr = true, buffer = true },
-    -- },
+    ["gf"] = {
+      action = function()
+        return require("obsidian").util.gf_passthrough()
+      end,
+      opts = { noremap = false, expr = true, buffer = true },
+    },
     -- Toggle check-boxes.
     ["<leader>ch"] = {
       action = function()
@@ -103,7 +127,7 @@ return {
         suffix = suffix .. string.char(math.random(65, 90))
       end
     end
-    return tostring(os.time()) .. "-" .. suffix
+    return suffix
   end,
 
   -- Optional, customize how note file names are generated given the ID, target directory, and title.
@@ -129,7 +153,7 @@ return {
   -- end,
 
   -- Either 'wiki' or 'markdown'.
-  preferred_link_style = "wiki",
+  preferred_link_style = "markdown",
 
   -- Optional, boolean or a function that takes a filename and returns a boolean.
   -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
@@ -171,8 +195,8 @@ return {
   ---@param url string
   follow_url_func = function(url)
     -- Open the URL in the default web browser.
-    vim.fn.jobstart({ "open", url }) -- Mac OS
-    -- vim.fn.jobstart({"xdg-open", url})  -- linux
+    -- vim.fn.jobstart({ "open", url }) -- Mac OS
+    vim.fn.jobstart({ "xdg-open", url }) -- linux
     -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
     -- vim.ui.open(url) -- need Neovim 0.10.0+
   end,
@@ -181,8 +205,8 @@ return {
   -- file it will be ignored but you can customize this behavior here.
   ---@param img string
   follow_img_func = function(img)
-    vim.fn.jobstart({ "qlmanage", "-p", img }) -- Mac OS quick look preview
-    -- vim.fn.jobstart({"xdg-open", url})  -- linux
+    -- vim.fn.jobstart({ "qlmanage", "-p", img }) -- Mac OS quick look preview
+    vim.fn.jobstart({ "xdg-open", img }) -- linux
     -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
   end,
 
@@ -256,7 +280,6 @@ return {
 
   -- Optional, configure additional syntax highlighting / extmarks.
   -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
-  conceallevel = 1,
   ui = {
     enable = true, -- set to false to disable all additional syntax features
     update_debounce = 200, -- update delay after a text change (in milliseconds)

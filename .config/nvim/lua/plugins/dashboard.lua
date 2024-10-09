@@ -20,10 +20,10 @@ return {
             key = "f",
           },
           {
-            desc = " Apps",
+            desc = " Daily notes",
             group = "DiagnosticHint",
-            action = "Telescope app",
-            key = "a",
+            action = "ObsidianDailies",
+            key = "n",
           },
           {
             desc = " dotfiles",

@@ -19,6 +19,7 @@ local telescope = {
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
+    event = "VeryLazy",
     config = function()
       local tscope = require("telescope")
       tscope.setup({

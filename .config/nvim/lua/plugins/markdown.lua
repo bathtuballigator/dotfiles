@@ -1,9 +1,14 @@
 return {
   {
     {
+      "ryleelyman/latex.nvim",
+      opts = {},
+    },
+    {
       "epwalsh/obsidian.nvim",
       version = "*", -- recommended, use latest release instead of latest commit
       lazy = true,
+      cmd = { "ObsidianWorkspace", "ObsidianDailies", "ObsidianNew", "ObsidianSearch", "ObsidianQuickSwitch" },
       ft = "markdown",
       -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
       -- event = {
@@ -22,10 +27,6 @@ return {
       opts = function()
         return require("config.obsidian")
       end,
-      config = function (_, opts)
-        vim.opt_local.conceallevel = 1
-        require("obsidian").setup(opts)
-      end
     },
     {
       "MeanderingProgrammer/render-markdown.nvim",
@@ -34,7 +35,50 @@ return {
       -- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
       ---@module 'render-markdown'
       ---@type render.md.UserConfig
-      opts = {},
+      opts = {
+        latex = { enabled = false },
+        win_options = { conceallevel = { rendered = 2 } },
+        bullet = {
+          right_pad = 1,
+        },
+        checkbox = {
+          -- Turn on / off checkbox state rendering
+          enabled = true,
+          -- Determines how icons fill the available space:
+          --  inline:  underlying text is concealed resulting in a left aligned icon
+          --  overlay: result is left padded with spaces to hide any additional text
+          position = "inline",
+          unchecked = {
+            -- Replaces '[ ]' of 'task_list_marker_unchecked'
+            icon = "󰄱",
+            -- Highlight for the unchecked icon
+            highlight = "RenderMarkdownUnchecked",
+            -- Highlight for item associated with unchecked checkbox
+            scope_highlight = nil,
+          },
+          checked = {
+            -- Replaces '[x]' of 'task_list_marker_checked'
+            icon = "",
+            -- Highligh for the checked icon
+            highlight = "RenderMarkdownChecked",
+            -- Highlight for item associated with checked checkbox
+            scope_highlight = nil,
+          },
+          -- Define custom checkbox states, more involved as they are not part of the markdown grammar
+          -- As a result this requires neovim >= 0.10.0 since it relies on 'inline' extmarks
+          -- Can specify as many additional states as you like following the 'todo' pattern below
+          --   The key in this case 'todo' is for healthcheck and to allow users to change its values
+          --   'raw':       Matched against the raw text of a 'shortcut_link'
+          --   'rendered':  Replaces the 'raw' value when rendering
+          --   'highlight': Highlight for the 'rendered' icon
+          custom = {
+            todo = { raw = "[-]", rendered = "󰥔", highlight = "RenderMarkdownTodo" },
+            right_arrow = { raw = "[>]", rendered = "", highlight = "ObsidianRightArrow" },
+            tilde = { raw = "[~]", rendered = "󰰱", highlight = "ObsidianTilde" },
+            exclamation = { raw = "[!]", rendered = "", highlight = "ObsidianImportant" },
+          },
+        },
+      },
     },
     -- {
     --   "OXY2DEV/markview.nvim",
@@ -53,6 +97,13 @@ return {
         -- configuration here or empty for defaults
       },
     },
+
+    --   {
+    --     "davidgranstrom/nvim-markdown-preview",
+    --     config = function ()
+    --
+    --     end
+    -- }
     -- Install markdown preview, use npx if available.
     {
 
@@ -71,6 +122,8 @@ return {
         if vim.fn.executable("npx") then
           vim.g.mkdp_filetypes = { "markdown" }
         end
+        -- vim.g.mkdp_auto_start = 1
+        vim.g.mkdp_browser = "librewolf"
       end,
     },
   },

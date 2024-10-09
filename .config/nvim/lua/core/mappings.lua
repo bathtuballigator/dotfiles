@@ -413,11 +413,54 @@ M.gitsigns = {
 
 M.markdown = {
   n = {
-    ["<leader>toc"] = {
+    ["<leader>ol"] = {
+      "<cmd> ObsidianLinks <CR>",
+      "Show all links in current file and where they point to",
+    },
+    ["<leader>ow"] = {
+      "<cmd> ObsidianWorkspace <CR>",
+      "Open obsidian workspace switcher",
+    },
+    ["<leader><C-n>"] = {
+      "<cmd> ObsidianNew <CR>",
+      "Create a new obsidian note",
+    },
+    ["<leader>otc"] = {
+      "<cmd> ObsidianTOC <CR>",
+      "Load TOC into picker buffer",
+    },
+    ["<leader>opi"] = {
+      "<cmd> ObsidianPasteImg <CR>",
+      "Paste image into current document",
+    },
+    ["<leader>oen"] = {
+      "<cmd> ObsidianExtractNote",
+    },
+    ["<leader>off"] = {
+      "<cmd> ObsidianQuickSwitch <CR>",
+      "Quick Switch to other notes in the current workspace"
+    },
+    ["<leader>ofw"] = {
+      "<cmd> ObsidianSearch <CR>",
+      "Find (or create) other notes in the current workspace, with ripgrep",
+    },
+    ["<leader>od"] = {
+      "<cmd> ObsidianDailies <CR>",
+      "Obsidian Dailies menu",
+    },
+    ["<leader>obl"] = {
+      "<cmd> ObsidianBacklinks <CR>",
+      "Show Backlinks for current file",
+    },
+    ["<leader>ot"] = {
+      "<cmd> ObsidianTags <CR>",
+      "Fuzzy find window for workspace tags",
+    },
+    ["<leader><C-t>"] = {
       "<cmd> MDInsertToc <CR>",
       "Generate order Table of contents in Markdown",
     },
-    ["<leader>md"] = {
+    ["<leader>mp"] = {
       "<cmd> MarkdownPreviewToggle <CR>",
       "Toggle markdown preview",
     },
