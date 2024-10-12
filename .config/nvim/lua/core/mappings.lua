@@ -9,10 +9,10 @@ M.general = {
     ["<C-e>"] = { "<End>", "End of line" },
 
     -- navigate within insert mode
-    ["<C-h>"] = { "<Left>", "Move left" },
-    ["<C-l>"] = { "<Right>", "Move right" },
-    ["<C-j>"] = { "<Down>", "Move down" },
-    ["<C-k>"] = { "<Up>", "Move up" },
+    ["<M-h>"] = { "<Left>", "Move left" },
+    ["<M-l>"] = { "<Right>", "Move right" },
+    ["<M-j>"] = { "<Down>", "Move down" },
+    ["<M-k>"] = { "<Up>", "Move up" },
   },
 
   n = {
@@ -438,7 +438,7 @@ M.markdown = {
     },
     ["<leader>off"] = {
       "<cmd> ObsidianQuickSwitch <CR>",
-      "Quick Switch to other notes in the current workspace"
+      "Quick Switch to other notes in the current workspace",
     },
     ["<leader>ofw"] = {
       "<cmd> ObsidianSearch <CR>",

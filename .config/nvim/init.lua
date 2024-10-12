@@ -28,6 +28,8 @@ utils.load_mappings(maps.telescope, {})
 utils.load_mappings(maps.gitsigns, {})
 utils.load_mappings(maps.markdown, {})
 
+vim.cmd("TSEnable highlight")
+
 vim.api.nvim_create_autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
   group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
   callback = function(args)
@@ -54,9 +56,9 @@ vim.api.nvim_create_autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
 })
 
 -- Add concealing when we open markdown files for obsidian.nvim ui
-vim.api.nvim_create_autocmd('BufEnter', {
-  callback = function (opts)
-    if vim.bo[opts.buf].filetype == 'markdown' then
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function(opts)
+    if vim.bo[opts.buf].filetype == "markdown" then
       vim.opt.conceallevel = 2
     end
   end,
