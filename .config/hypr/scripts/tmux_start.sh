@@ -2,7 +2,7 @@
 
 function start_tmux() {
     tmux new -s $1 -c $PWD -n editor -d
-    tmux new-window -a -n "file manager" -t $1":editor" -c $PWD nvim
+    tmux new-window -a -n "file manager" -t $1":editor" -c $PWD
     tmux split-window -t $1":file manager" -v -c $PWD yazi
     tmux split-window -t $1":file manager" -h -c $PWD htop
     tmux new-window -a -n terminal -t $1":file manager" -c $PWD
