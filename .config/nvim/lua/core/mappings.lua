@@ -9,10 +9,10 @@ M.general = {
     ["<C-e>"] = { "<End>", "End of line" },
 
     -- navigate within insert mode
-    ["<M-h>"] = { "<Left>", "Move left" },
-    ["<M-l>"] = { "<Right>", "Move right" },
-    ["<M-j>"] = { "<Down>", "Move down" },
-    ["<M-k>"] = { "<Up>", "Move up" },
+    ["<C-h>"] = { "<Left>", "Move left" },
+    ["<C-l>"] = { "<Right>", "Move right" },
+    ["<C-j>"] = { "<Down>", "Move down" },
+    ["<C-k>"] = { "<Up>", "Move up" },
   },
 
   n = {
@@ -461,7 +461,7 @@ M.markdown = {
       "Generate order Table of contents in Markdown",
     },
     ["<leader>mp"] = {
-      "<cmd> MarkdownPreviewToggle <CR>",
+      "<cmd> MarkdownPreview <CR>",
       "Toggle markdown preview",
     },
   },
