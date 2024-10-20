@@ -21,6 +21,7 @@ return {
         "stylua",
         "texlab",
         "marksman",
+        "black",
       },
     },
     config = function(_, opts)
