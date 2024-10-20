@@ -160,5 +160,3 @@ export BAT_THEME="Catppuccin Mocha"
 # testing 123
 
 export ZELLIJ_AUTO_ATTACH=true
-
-eval "$(atuin init zsh)"
