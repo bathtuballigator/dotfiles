@@ -1,0 +1,14 @@
+autologin.canonical_username="kanethegrape"
+autologin.blob="ou/LncYqUTiFBcj6GuYbk5j02nLVlbHG10ilWKg5A1QgazgZyCQPXFiNTWdlpNsfUjhpSwpVEccxl2FXDnPWpDOdOb3Qiuwh7Ah6FfGSafAvfhniH5hu57Z/IBmp1Q4FQIWmv4HgaYHmjwveLfDG6+nmG9/zmoVlNc+Y7BAwtx2R7iRC0ePdYNDM1DTnLrp4g3bsgqyUcAturMhs8QbXDICHueHWJG3wvaVOkJpUcUFKcqpHIPG9+mmCNVMiBDY+lOHEIqVJt3m4i8H7CZ0owDANJwS4DAF11WtmjiwyJw8="
+autologin.saved_credentials="{\"kanethegrape\":[\"kanethegrape\",\"ou/LncYqUTiFBcj6GuYbk5j02nLVlbHG10ilWKg5A1QgazgZyCQPXFiNTWdlpNsfUjhpSwpVEccxl2FXDnPWpDOdOb3Qiuwh7Ah6FfGSafAvfhniH5hu57Z/IBmp1Q4FQIWmv4HgaYHmjwveLfDG6+nmG9/zmoVlNc+Y7BAwtx2R7iRC0ePdYNDM1DTnLrp4g3bsgqyUcAturMhs8QbXDICHueHWJG3wvaVOkJpUcUFKcqpHIPG9+mmCNVMiBDY+lOHEIqVJt3m4i8H7CZ0owDANJwS4DAF11WtmjiwyJw8=\"]}"
+es.send-on-startup=true
+core.clock_delta=0
+autologin.username="kanethegrape"
+app.window.position.saved=true
+app.window.position.height=1100
+app.window.position.y=46
+storage.last-location="/home/rose/.cache/spotify/Storage"
+app.window.state.saved=true
+app.window.position.width=2036
+app.window.position.x=6
+app.last-launched-version="1.2.47.364.gf06e5cee"
