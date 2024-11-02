@@ -6,6 +6,7 @@ return {
     require("catppuccin").setup({
       compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
       -- optional setup goes here
+      transparent_background = vim.g.transparent_enabled,
       integrations = {
         gitsigns = true,
         neotree = false,

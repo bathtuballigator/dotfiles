@@ -6,7 +6,7 @@
     "layer": "top",
     "position": "bottom",
     "mod": "dock",
-    "height": 41,
+    "height": 40,
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
@@ -149,7 +149,7 @@
 	"wlr/taskbar": {
 		"format": "{icon}",
 		"rotate": 0,
-		"icon-size": 18,
+		"icon-size": 24,
 		"icon-theme": "Tela-circle-dracula",
         "spacing": 0,
 		"tooltip-format": "{title}",
@@ -239,7 +239,7 @@
     },
 
     "privacy": {
-        "icon-size": 14,
+        "icon-size": 18,
         "icon-spacing": 5,
         "transition-duration": 250,
         "modules": [
@@ -257,7 +257,7 @@
     },
 
     "tray": {
-        "icon-size": 18,
+        "icon-size": 24,
         "rotate": 0,
         "spacing": 5
     },
