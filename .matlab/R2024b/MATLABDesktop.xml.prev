@@ -5,10 +5,10 @@
       <ToolBars>
          <ToolBar Label="Current Folder" Name="Current DirectoryToolBar" Showing="yes"/>
       </ToolBars>
-      <Location EntirelyVisible="yes" External="yes" Height="1204" MaxHeight="1350" MaxWidth="2400" Maximized="yes" Type="floating" Width="2166" X="362" Y="0"/>
-      <Split Orientation="leftRight" Position="0.2194">
+      <Location EntirelyVisible="yes" External="yes" Height="1132" MaxHeight="1080" MaxWidth="1920" Maximized="yes" Type="floating" Width="2166" X="4842" Y="10"/>
+      <Split Orientation="leftRight" Position="0.2199">
          <View Name="Current Directory" Title="Current Folder"/>
-         <Split Orientation="leftRight" Position="0.7275">
+         <Split Orientation="leftRight" Position="0.7283">
             <View Name="Command Window" Title="Command Window"/>
             <View Name="Workspace" Title="Workspace"/>
          </Split>
@@ -72,20 +72,20 @@
       <DocumentArea Arrangement="maximized" Bar="top" Empty="no" MaxBarWidth="620" Showing="no" ShrinkTabs="yes"/>
    </Group>
    <Client Class="com.mathworks.mde.cmdwin.CmdWin" Dock="yes" Guest="no" Name="Command Window" SelectionOrder="15" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Command Window">
-      <Location Context="docked" Height="1085" ParentHeight="1085" ParentWidth="1870" Path="EW" Type="nested" Width="1360" X="530" Y="186"/>
-      <Location Context="nested" Height="1085" ParentHeight="1085" ParentWidth="1870" Path="EW" Type="nested" Width="1360" X="530" Y="186"/>
+      <Location Context="docked" Height="853" ParentHeight="853" ParentWidth="1485" Path="EW" Type="nested" Width="1081" X="2964" Y="163"/>
+      <Location Context="nested" Height="853" ParentHeight="853" ParentWidth="1485" Path="EW" Type="nested" Width="1081" X="2964" Y="163"/>
    </Client>
    <Client Class="com.mathworks.mde.cmdhist.AltHistory" Dock="no" Guest="no" Name="Command History" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="yes" Title="Command History">
       <Location Context="docked" Path="EES" Type="nested"/>
-      <Location Anchored="yes" Context="undocked" External="yes" Height="250" Type="floating" Width="400" X="555" Y="1001"/>
+      <Location Anchored="yes" Context="undocked" External="yes" Height="250" Type="floating" Width="400" X="3014" Y="780"/>
    </Client>
    <Client Class="com.mathworks.mde.explorer.Explorer" Dock="yes" Guest="no" Name="Current Directory" SelectionOrder="13" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Current Folder">
-      <Location Context="docked" Height="1085" ParentHeight="1085" ParentWidth="2400" Path="W" Type="nested" Width="526" Y="186"/>
-      <Location Context="nested" Height="1085" ParentHeight="1085" ParentWidth="2400" Path="W" Type="nested" Width="526" Y="186"/>
+      <Location Context="docked" Height="853" ParentHeight="853" ParentWidth="1908" Path="W" Type="nested" Width="419" X="2541" Y="163"/>
+      <Location Context="nested" Height="853" ParentHeight="853" ParentWidth="1908" Path="W" Type="nested" Width="419" X="2541" Y="163"/>
    </Client>
-   <Client Class="com.mathworks.mde.workspace.WorkspaceBrowser" Dock="yes" Guest="no" Name="Workspace" SelectionOrder="12" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Workspace">
-      <Location Context="docked" Height="1085" Path="EE" Type="nested" Width="506" X="1894" Y="186"/>
-      <Location Context="nested" Height="1085" Path="EE" Type="nested" Width="506" X="1894" Y="186"/>
+   <Client Class="com.mathworks.mde.workspace.WorkspaceBrowser" Dock="yes" Guest="no" Name="Workspace" SelectionOrder="14" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Workspace">
+      <Location Context="docked" Height="853" ParentHeight="853" ParentWidth="1485" Path="EE" Type="nested" Width="400" X="4049" Y="163"/>
+      <Location Context="nested" Height="853" ParentHeight="853" ParentWidth="1485" Path="EE" Type="nested" Width="400" X="4049" Y="163"/>
    </Client>
    <Client Class="com.mathworks.mde.profiler.OldProfiler" Dock="no" Guest="no" Name="Profiler" Show="no" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Profiler">
       <Location Context="docked" Path="EWN" Type="nested"/>

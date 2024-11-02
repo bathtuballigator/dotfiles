@@ -1,7 +1,7 @@
 -- this is a comment
 local plugins = {
   {
-    'RaafatTurki/hex.nvim',
+    "RaafatTurki/hex.nvim",
     opts = {},
   },
   {
@@ -39,10 +39,10 @@ local plugins = {
       "TmuxNavigatePrevious",
     },
     keys = {
-      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
@@ -80,7 +80,7 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
-      "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
+      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
   },
   {
@@ -116,6 +116,17 @@ local plugins = {
     opts = {
       options = { theme = "catppuccin-mocha" },
     },
+    config = function(_, opts)
+      local auto = require("lualine.themes.auto")
+      local lualine_modes = { "insert", "normal", "visual", "command", "replace", "inactive", "terminal" }
+      for _, field in ipairs(lualine_modes) do
+        if auto[field] and auto[field].c then
+          auto[field].c.bg = "NONE"
+        end
+      end
+      opts.options.theme = auto
+      require("lualine").setup(opts)
+    end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",
