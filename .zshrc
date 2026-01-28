@@ -4,6 +4,7 @@
 export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin/:$PATH"
 export EDITOR="nvim"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 export ZOXIDE_CMD_OVERRIDE=cd
 # Path to your Oh My Zsh installation.
