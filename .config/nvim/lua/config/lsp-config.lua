@@ -29,4 +29,10 @@ lspenable("texlab")
 lspconfig["marksman"] = {}
 lspenable("marksman")
 
+lspconfig["julials"] = {
+  capabilities = capabilities,
+  filetypes = { "jl" },
+}
+lspenable("julials")
+
 require("core.utils").load_mappings(require("core.mappings").lspconfig, {})

@@ -22,6 +22,7 @@ return {
         "texlab",
         "marksman",
         "black",
+        "julia-lsp",
       },
     },
     config = function(_, opts)
