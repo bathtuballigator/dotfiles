@@ -41,6 +41,8 @@ alias cat="bat"
 alias nzf='nvim $(fzf --preview="bat --color=always {}")'
 alias ts="tstart"
 
+alias act="source .venv/bin/activate"
+
 # -----------------------------------------------------
 # ML4W Apps
 # -----------------------------------------------------

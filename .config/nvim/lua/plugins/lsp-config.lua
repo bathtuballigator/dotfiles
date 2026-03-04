@@ -6,6 +6,11 @@ return {
     },
   },
   {
+    "mrcjkb/rustaceanvim",
+    version = "^8", -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+  {
     "williamboman/mason.nvim",
     lazy = true,
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
@@ -23,6 +28,8 @@ return {
         "marksman",
         "black",
         "julia-lsp",
+        "rust-analyzer",
+        "codelldb",
       },
     },
     config = function(_, opts)

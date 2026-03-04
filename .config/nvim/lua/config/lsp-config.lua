@@ -2,6 +2,12 @@ local lspconfig = vim.lsp.config
 local lspenable = vim.lsp.enable
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+lspconfig["rust-analyzer"] = {
+  capabilities = capabilities;
+  filetypes = { "rs" }
+}
+lspenable("rust-analyzer")
+
 lspconfig["lua_ls"] = {}
 lspenable("lua_ls")
 lspconfig["clangd"] = {
