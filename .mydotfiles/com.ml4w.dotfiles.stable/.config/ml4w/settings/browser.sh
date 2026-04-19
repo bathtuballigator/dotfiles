@@ -1,1 +1,1 @@
-vivaldi
+vivaldi --password-store="kwallet6"
